@@ -1,0 +1,33 @@
+a)cat > test.txt
+  cat >> test.txt
+  cat file1.txt file2.txt > file3.txt
+  cat file1.txt - file2.txt - file3.txt
+  cat -b blank.txt
+b)head blank.txt
+  tail blank.txt
+  head -n 1 blank.txt
+  head -c 2 blank.txt
+  tail -n 1 blank.txt
+  tail -c 2 blank.txt
+c)cp -n blank.txt test.txt
+  cp -i blank.txt test.txt
+  overwrite test.txt? (y/n [n]) n
+  not overwritten
+  cp -f blank.txt test.txt
+d)mv -f blank.txt test.txt
+  mv -i blank.txt test.txt
+  mv /Users/Documents/test.txt/ /Users/Divyansh/
+  mv /Users/Divyansh/Documents/test.txt /Users/Divyansh/Documents/blank.txt /Users/Divyansh/
+e)rm -r /Users/Divyansh/TestFolder/
+  rm -i test.txt
+  rm -ri /Users/Divyansh/TestFolder
+    (base) divyansh@Divyanshs-MacBook-Pro ~ % rm -ri /Users/Divyansh/TestFolder
+	examine files in directory /Users/Divyansh/TestFolder? y
+	remove /Users/Divyansh/TestFolder/example? y
+	remove /Users/Divyansh/TestFolder? y
+  rm -f test.txt
+  rm -rf testfolder
+f)Can only be used to remove empty directories so no -r or -f available.
+g)find . -name "blank.txt"
+  find . -type f
+  find . -type f -name "*.txt"
