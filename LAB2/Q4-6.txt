@@ -1,0 +1,9 @@
+Q4)grep -l 'MIT' *
+   sed 's/MIT/Manipal Institute of Technology/g' *
+
+Q5)ls | grep '[0-9]' | xargs wc
+
+Q6)wc file1.txt & wc file2.txt & wc file3.txt & wc file4.txt &
+   pkill wc
+
+

@@ -1,0 +1,5 @@
+1)grep '^..$' test.txt
+2)grep '^[A-Z]' test.txt
+3)grep '\.$' test.txt
+4)grep ' ' test.txt
+5)grep '[0-9]' test.txt > input.txt

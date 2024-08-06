@@ -1,0 +1,3 @@
+Q1) sed 's/.\(.\)$/\1/' test.txt
+
+Q2) grep '[0-9]' blank2.txt | wc -l

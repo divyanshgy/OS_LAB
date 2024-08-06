@@ -1,0 +1,25 @@
+vi studentInformation.txt
+i
+RegistrationNo:Name:Department:Branch:Section:Sub1:Sub2:Sub3
+1234:abhi:ICT:CCE:A:80:60:70
+5678:rita:EEC:ECE:B:85:75:65
+9101:john:ICT:IT:C:78:82:88
+1123:sara:CS:CSE:D:90:85:80
+1415:mark:ICT:ME:A:70:60:75
+1617:nina:ICT:CSE:B:88:92:85
+1819:paul:EEC:ECE:C:77:80:90
+2021:emma:EEC:EEE:D:69:72:68
+2223:jack:MME:ME:A:85:88:82
+2425:lisa:CS:CSE:B:92:95:91
+2627:tom:ICT:IT:C:75:70:78
+ESC :wq!
+
+i)grep 'ICT' studentInformation.txt | wc -l
+
+ii)sed 's/IT/Information Technology/g' studentInformation.txt > ITStudents.txt
+
+iii)grep '^1234:' studentInformation.txt | awk -F':' '{s=($6+$7+$8)/3; print s}' | bc
+
+iv) sed '1s/*/\U&/g' studentInformation.txt
+    or
+    grep 'RegistrationNo' studentInformation.txt | tr a-z A-Z

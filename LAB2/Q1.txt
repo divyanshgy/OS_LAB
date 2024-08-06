@@ -1,0 +1,542 @@
+STUDENT@MIT-ICT-L11-32:~$ touch fruitlist.txt
+STUDENT@MIT-ICT-L11-32:~$ cat fruitlist.txt
+STUDENT@MIT-ICT-L11-32:~$ cat > fruitlist.txt
+apple
+apples
+pineapple
+fruit-apple
+banana
+pear
+peach 
+orange
+^C
+STUDENT@MIT-ICT-L11-32:~$ cat fruitlist.txt
+apple
+apples
+pineapple
+fruit-apple
+banana
+pear
+peach
+orange
+STUDENT@MIT-ICT-L11-32:~$ grep apple fruitlist.txt
+apple
+apples
+pineapple
+fruit-apple
+STUDENT@MIT-ICT-L11-32:~$ grep -x apple fruitlist.txt
+apple
+STUDENT@MIT-ICT-L11-32:~$ grep ^p fruitlist.txt
+pineapple
+pear
+peach
+STUDENT@MIT-ICT-L11-32:~$ grep -v apple fruitlist.txt
+banana
+pear
+peach
+orange
+STUDENT@MIT-ICT-L11-32:~$ grep -r app fruitlist.txt
+apple
+apples
+pineapple
+fruit-apple
+STUDENT@MIT-ICT-L11-32:~$ grep -E [0-4] fruitlist.txt
+1234 abcd
+STUDENT@MIT-ICT-L11-32:~$ grep -e [0-4] fruitlist.txt
+1234 abcd
+STUDENT@MIT-ICT-L11-32:~$ grep -e "agarwal" -e "aggarwal" fruitlist.txt
+agarwal
+aggarwal abc
+agarwal def
+STUDENT@MIT-ICT-L11-32:~$ grep -E "agarwal" -E "aggarwal" fruitlist.txt
+grep: aggarwal: No such file or directory
+fruitlist.txt:agarwal
+fruitlist.txt:agarwal def
+STUDENT@MIT-ICT-L11-32:~$ touch fruits.txt
+STUDENT@MIT-ICT-L11-32:~$ cat > fruits.txt
+apple
+orange
+green
+pineapple 
+pen
+^C
+STUDENT@MIT-ICT-L11-32:~$ grep apple fruits.txt fruitlist.txt
+fruits.txt:apple
+fruits.txt:pineapple
+fruitlist.txt:apple
+fruitlist.txt:apples
+fruitlist.txt:pineapple
+fruitlist.txt:fruit-apple
+STUDENT@MIT-ICT-L11-32:~$ grep apple pen fruitlist.txt
+]grep: pen: No such file or directory
+fruitlist.txt:apple
+fruitlist.txt:apples
+fruitlist.txt:pineapple
+fruitlist.txt:fruit-apple
+STUDENT@MIT-ICT-L11-32:~$ grep -e apple -e pen fruits.txt
+apple
+pineapple
+pen
+STUDENT@MIT-ICT-L11-32:~$ cat fruitlist.txt | grep apple
+apple
+apples
+pineapple
+fruit-apple
+STUDENT@MIT-ICT-L11-32:~$ grep --color pen fruits.txt
+pen
+STUDENT@MIT-ICT-L11-32:~$ grep pineapple *
+grep: 220911662: Is a directory
+grep: Desktop: Is a directory
+grep: Documents: Is a directory
+grep: Downloads: Is a directory
+fruitlist.txt:pineapple
+fruits.txt:pineapple
+grep: Music: Is a directory
+grep: Pictures: Is a directory
+grep: pt: Is a directory
+grep: Public: Is a directory
+grep: snap: Is a directory
+grep: Templates: Is a directory
+grep: testfolder: Is a directory
+grep: Videos: Is a directory
+
+
+
+STUDENT@MIT-ICT-L11-32:~$ sort fruits.txt fruitlist.txt
+1234 abcd
+agarwal
+agarwal def
+aggarwal abc
+apple
+apple
+apples
+banana
+fruit-apple
+green
+orange
+orange
+peach
+pear
+pen
+pineapple
+pineapple
+STUDENT@MIT-ICT-L11-32:~$ sort fruitlist.txt
+1234 abcd
+agarwal
+agarwal def
+aggarwal abc
+apple
+apples
+banana
+fruit-apple
+orange
+peach
+pear
+pineapple
+STUDENT@MIT-ICT-L11-32:~$ sort -r fruits.txt
+pineapple
+pen
+orange
+green
+apple
+STUDENT@MIT-ICT-L11-32:~$ sort -n fruits.txt
+apple
+green
+orange
+pen
+pineapple
+STUDENT@MIT-ICT-L11-32:~$ cat >> fruits.txt
+1234 abc
+8328653
+^C
+STUDENT@MIT-ICT-L11-32:~$ sort -n fruits.txt
+apple
+green
+orange
+pen
+pineapple
+1234 abc
+8328653
+
+
+
+STUDENT@MIT-ICT-L11-32:~$ wc fruits.txt
+ 5  6 41 fruits.txt
+STUDENT@MIT-ICT-L11-32:~$ wc -l fruits.txt
+5 fruits.txt
+STUDENT@MIT-ICT-L11-32:~$ wc -w fruits.txt
+6 fruits.txt
+STUDENT@MIT-ICT-L11-32:~$ wc -c fruits.txt
+41 fruits.txt
+STUDENT@MIT-ICT-L11-32:~$ wc -m fruits.txt
+41 fruits.txt
+STUDENT@MIT-ICT-L11-32:~$ wc *
+wc: 220911662: Is a directory
+      0       0       0 220911662
+wc: Desktop: Is a directory
+      0       0       0 Desktop
+wc: Documents: Is a directory
+      0       0       0 Documents
+wc: Downloads: Is a directory
+      0       0       0 Downloads
+      0       0       0 flsorted.txt
+      5       5      39 fruitlist.txt
+      5       6      41 fruits.txt
+     11      38     334 lightdm2.sh
+wc: Music: Is a directory
+      0       0       0 Music
+wc: Pictures: Is a directory
+      0       0       0 Pictures
+wc: pt: Is a directory
+      0       0       0 pt
+wc: Public: Is a directory
+      0       0       0 Public
+wc: snap: Is a directory
+      0       0       0 snap
+wc: Templates: Is a directory
+      0       0       0 Templates
+wc: testfolder: Is a directory
+      0       0       0 testfolder
+wc: Videos: Is a directory
+      0       0       0 Videos
+     21      49     414 total
+
+
+
+STUDENT@MIT-ICT-L11-32:~$ cut -c 1,2,3 fruits.txt
+pen
+app
+pin
+123
+ras
+STUDENT@MIT-ICT-L11-32:~$ cut -c 3- fruits.txt
+n
+ple
+neapple
+34 berry
+spberry
+STUDENT@MIT-ICT-L11-32:~$ cut -c 1,2,3 fruits.txt
+pen
+app
+pin
+123
+ras
+STUDENT@MIT-ICT-L11-32:~$ cut -c 3- fruits.txt
+n
+ple
+neapple
+34 berry
+spberry
+STUDENT@MIT-ICT-L11-32:~$ cut -f 1,3,4 fruits.txt
+pen
+apple
+pineapple
+1234 berry
+raspberry
+STUDENT@MIT-ICT-L11-32:~$ man cat
+STUDENT@MIT-ICT-L11-32:~$ cut -d " " -f 1
+^C
+STUDENT@MIT-ICT-L11-32:~$ cut -d " " -f 1 fruits.txt
+pen
+apple
+pineapple
+1234
+raspberry
+STUDENT@MIT-ICT-L11-32:~$ cut -d " " -f 2 fruits.txt
+pen
+apple
+pineapple
+berry
+raspberry
+STUDENT@MIT-ICT-L11-32:~$ cut -d " 
+> ^C
+STUDENT@MIT-ICT-L11-32:~$ cut -d " " -f 1-2 fruits.txt
+pen
+apple
+pineapple
+1234 berry
+raspberry
+STUDENT@MIT-ICT-L11-32:~$ cut -f 1-3 fruits.txt
+pen
+apple
+pineapple
+1234 berry
+raspberry
+STUDENT@MIT-ICT-L11-32:~$ cut -f 1 fruits.txt
+pen
+apple
+pineapple
+1234 berry
+raspberry
+STUDENT@MIT-ICT-L11-32:~$ cat >> fruits.txt
+bleh	bleh	bleh
+test	1234	6789
+^C
+STUDENT@MIT-ICT-L11-32:~$ cut -f 1 fruits.txt
+pen
+apple
+pineapple
+1234 berry
+raspberry
+bleh
+test
+STUDENT@MIT-ICT-L11-32:~$ cut -f 1-2 fruits.txt
+pen
+apple
+pineapple
+1234 berry
+raspberry
+bleh	bleh
+test	1234
+
+
+
+(base) divyansh@Divyanshs-MacBook-Pro ~ % touch test.txt
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat > test.txt
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+^C
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e 's/unix/linux/' test.txt
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat test.txt
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed 's/unix/linux/' test.txt
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e 's/unix/linux/g' test.txt
+linux is great os. linux is opensource. linux is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.linux is a multiuser os.Learn linux .linux is a powerful.
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -i -e 's/unix/linux/' test.txt
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat test.txt
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat >> test.txt
+9 abcd
+1234 horse
+523jack 
+^C
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e 's/[0-9]*/(&)/' test.txt
+()linux is great os. unix is opensource. unix is free os.
+()learn operating system.
+()linux linux which one you choose.
+()linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(9) abcd
+(1234) horse
+(523)jack
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat >> test.txt
+hello123 world 456
+^C
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e 's/[0-9]*/(&)/' test.txt
+()linux is great os. unix is opensource. unix is free os.
+()learn operating system.
+()linux linux which one you choose.
+()linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(9) abcd
+(1234) horse
+(523)jack
+()hello123 world 456
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed 's/[0-9]*/(&)/' test.txt
+()linux is great os. unix is opensource. unix is free os.
+()learn operating system.
+()linux linux which one you choose.
+()linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+(9) abcd
+(1234) horse
+(523)jack
+()hello123 world 456
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat >> test.txt
+#base
+comment#testing
+com# test#for # os lab
+^C
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed '/^#/d' test.txt
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+9 abcd
+1234 horse
+523jack
+hello123 world 456
+comment#testing
+com# test#for # os lab
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat >> test.txt
+#base
+##double
+^C
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e '/^#/d' test.txt
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+9 abcd
+1234 horse
+523jack
+hello123 world 456
+comment#testing
+com# test#for # os lab
+(base) divyansh@Divyanshs-MacBook-Pro ~ % ls -l | sed -n -e '/^d/p'
+drwxr-xr-x    9 divyansh  staff    288 Apr 23 20:18 Cisco Packet Tracer 8.2.1
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat test.txt
+Hello, World! 123
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -i '/123/a "456"' test.txt
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat blank.txt
+pen
+apple
+pineaplle
+pineapple
+1234 abcd
+122 cdef
+param harshit
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e '3,$d' blank.txt
+pen
+apple
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e '1,2 p' blank.txt
+pen
+pen
+apple
+apple
+pineaplle
+pineapple
+1234 abcd
+122 cdef
+param harshit
+(base) divyansh@Divyanshs-MacBook-Pro ~ % sed -e '1,4 d' blank.txt
+1234 abcd
+122 cdef
+param harshit
+
+
+(base) divyansh@Divyanshs-MacBook-Pro ~ % tr "[a-z]" "[A-Z]" < test.txt
+LINUX IS GREAT OS. UNIX IS OPENSOURCE. UNIX IS FREE OS.
+LEARN OPERATING SYSTEM.
+LINUX LINUX WHICH ONE YOU CHOOSE.
+LINUX IS EASY TO LEARN.UNIX IS A MULTIUSER OS.LEARN UNIX .UNIX IS A POWERFUL.
+9 ABCD
+1234 HORSE
+523JACK
+HELLO123 WORLD 456
+#BASE
+COMMENT#TESTING
+COM# TEST#FOR # OS LAB
+#BASE
+##DOUBLE
+(base) divyansh@Divyanshs-MacBook-Pro ~ % tr 'abcd' 'jknm' < test.txt
+linux is grejt os. unix is opensourne. unix is free os.
+lejrn operjting system.
+linux linux whinh one you nhoose.
+linux is ejsy to lejrn.unix is j multiuser os.Lejrn unix .unix is j powerful.
+9 jknm
+1234 horse
+523jjnk
+hello123 worlm 456
+#kjse
+nomment#testing
+nom# test#for # os ljk
+#kjse
+##moukle
+(base) divyansh@Divyanshs-MacBook-Pro ~ % tr 'a-d' 'jknm' < test.txt
+linux is grejt os. unix is opensourne. unix is free os.
+lejrn operjting system.
+linux linux whinh one you nhoose.
+linux is ejsy to lejrn.unix is j multiuser os.Lejrn unix .unix is j powerful.
+9 jknm
+1234 horse
+523jjnk
+hello123 worlm 456
+#kjse
+nomment#testing
+nom# test#for # os ljk
+#kjse
+##moukle
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat test.txt
+hello
+
+
+
+hello
+(base) divyansh@Divyanshs-MacBook-Pro ~ % tr -s '\n' < test.txt
+hello
+hello
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat test.txt
+line1\r
+line2\r
+(base) divyansh@Divyanshs-MacBook-Pro ~ % tr -d '\r' < test.txt
+line1\r
+line2\r
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat test.txt
+Hello, World! 123
+(base) divyansh@Divyanshs-MacBook-Pro ~ % tr -cd '[:alnum:]' < test.txt
+HelloWorld123
+
+
+
+(base) divyansh@Divyanshs-MacBook-Pro ~ % ps
+  PID TTY           TIME CMD
+ 2021 ttys003    0:00.01 /bin/zsh -il
+ 2211 ttys004    0:00.06 /bin/zsh -il
+ 9729 ttys005    0:00.14 -zsh
+kill 1234
+kill -s TERM 1234 
+kill -TERM 1234 
+kill -15 1234 
+
+kill -s KILL 1234
+kill -KILL 1234
+kill -9 1234
+
+
+
+(base) divyansh@Divyanshs-MacBook-Pro ~ % bc
+>>> 5+2
+7
+>>> 5/2
+2
+>>> 5>2
+1
+>>> 5<2
+0
+>>> 5*2
+10
+>>> quit
+(base) divyansh@Divyanshs-MacBook-Pro ~ % bc -l
+>>> 5/2
+2.50000000000000000000
+>>> quit
+
+
+
+vi vitest.txt
+i
+Hello this is a vi tutorial
+I am learning vi
+ESC :wq!
+(base) divyansh@Divyanshs-MacBook-Pro ~ % cat vitest.txt
+Hello this is a vi tutorial
+I am learning vi
+
+
+
+chmod a+r test.txt
+chmod +r test.txt
+chmod a-x test.txt
+chmod a+rx test.txt
+chmod u=rx,g=r,o= test.txt
+chmod ug=rw test.txt
+chmod 664 test.txt
+chmod -R u+w,go-w docs   
+ 
